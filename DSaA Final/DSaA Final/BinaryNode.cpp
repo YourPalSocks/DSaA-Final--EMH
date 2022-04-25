@@ -72,11 +72,11 @@ void BinaryNode<ItemType>::setRightChildPtr(BinaryNode<ItemType>* right)
 	rightChildPtr = right;
 }
 
-template<class ItemType>
-BinaryNode<ItemType>& BinaryNode<ItemType>::operator= (const BinaryNode<ItemType>& other)
+template <class ItemType>
+BinaryNode<ItemType> BinaryNode<ItemType>::operator=(const BinaryNode<ItemType>& other)
 {
 	item = other.getItem();
-	this->leftChildPtr = other.leftChildPtr;
-	this->rightChildPtr = other.rightChildPtr;
+	leftChildPtr = other.getLeftChildPtr();
+	rightChildPtr = other.getRightChildPtr();
 	return *this;
 }

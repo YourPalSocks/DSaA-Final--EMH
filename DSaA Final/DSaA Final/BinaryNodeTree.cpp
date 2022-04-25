@@ -8,15 +8,15 @@ BinaryNodeTree<ItemType>::BinaryNodeTree() : rootPtr(nullptr)
 template <class ItemType>
 BinaryNodeTree<ItemType>::BinaryNodeTree(const BinaryNode<ItemType>* root)
 {
-	rootPtr = root;
+	rootPtr->setItem(root->getItem());
 }
 
 template <class ItemType>
 BinaryNodeTree<ItemType>::BinaryNodeTree(const BinaryNode<ItemType>* root, 
-	const BinaryNode<ItemType>* leftPtr,
-	const BinaryNode<ItemType>* rightPtr)
+	BinaryNode<ItemType>* leftPtr,
+	BinaryNode<ItemType>* rightPtr)
 {
-	rootPtr = root;
+	rootPtr->setItem(root->getItem());
 	rootPtr->setLeftChildPtr(leftPtr);
 	rootPtr->setRightChildPtr(rightPtr);
 }

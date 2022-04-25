@@ -1,6 +1,6 @@
 /*
 * Ethan Heinlein CIS.2207.502
-* Final
+* Final Project
 
 * Create a function called bool isSameTree(Tree *); that will take an argument of a tree.
 * It will return a true if the argument is the equivalent tree.
@@ -34,9 +34,53 @@
 #include "BinaryNode.h"
 using namespace std;
 
+// Function Declarations
+bool isSameTree(BinaryNodeTree<string> treeA, BinaryNodeTree<string> treeB);
+
 int main()
 {
-    cout << "Hello World" << endl;
-    system("pause");
+    int menuSelection = -1;
+    do
+    {
+        // Print Menu
+        cout << "Binary Tree Comparison Program -- CI.2207 Final" << endl;
+        cout << "0  == See non-equivalent example" << endl;
+        cout << "1  == See equivalent example" << endl;
+        cout << "-1 == Quit Program" << endl;
+        cout << "Enter your selection: ";
+        cin >> menuSelection;
+
+        // Do Menu Actions
+        switch (menuSelection)
+        {
+            default:
+                cout << "Menu option not available." << endl;
+                break;
+
+            case 0:
+                break;
+
+            case 1:
+                break;
+
+            case -1:
+                cout << "Now quitting..." << endl;
+                break;
+        }
+        system("pause");
+        system("cls");
+    } while (menuSelection != -1);
+
     return 0;
+}
+
+
+/** The function specified to make for the final. Compares two trees.
+* @param treeA Tree to compare to treeB.
+* @param treeB Tree to compare to treeA.
+* @return True if structures of tree are same, false otherwise.
+*/
+bool isSameTree(BinaryNodeTree<string> treeA, BinaryNodeTree<string> treeB)
+{
+    return false;
 }

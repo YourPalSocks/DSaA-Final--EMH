@@ -33,7 +33,7 @@ public:
 	void setLeftChildPtr(BinaryNode<ItemType>* left);
 	void setRightChildPtr(BinaryNode<ItemType>* right);
 
-	BinaryNode<ItemType>& operator= (const BinaryNode<ItemType>& other);
+	BinaryNode<ItemType> operator= (const BinaryNode<ItemType>& other);
 };
 #endif
 
