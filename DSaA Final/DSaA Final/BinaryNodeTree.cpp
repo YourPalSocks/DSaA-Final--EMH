@@ -1,45 +1,54 @@
 #include "BinaryNodeTree.h"
 
 // -------------------- CONSTRUCTORS
-BinaryNodeTree::BinaryNodeTree() : rootPtr(nullptr)
+template <class ItemType>
+BinaryNodeTree<ItemType>::BinaryNodeTree() : rootPtr(nullptr)
 {}
 
-BinaryNodeTree::BinaryNodeTree(const string& rootName, const string& rootBirth)
+template <class ItemType>
+BinaryNodeTree<ItemType>::BinaryNodeTree(const BinaryNode<ItemType>* root)
 {
-	rootPtr = new Person(rootName, rootBirth, nullptr, nullptr);
+	rootPtr = root;
 }
 
-BinaryNodeTree::BinaryNodeTree(const string& rootName, const string& rootBirth,
-	const Person* leftPtr,
-	const Person* rightPtr)
+template <class ItemType>
+BinaryNodeTree<ItemType>::BinaryNodeTree(const BinaryNode<ItemType>* root, 
+	const BinaryNode<ItemType>* leftPtr,
+	const BinaryNode<ItemType>* rightPtr)
 {
-	rootPtr = new Person(rootName, rootBirth, copyTree(leftPtr), copyTree(rightPtr));
+	rootPtr = root;
+	rootPtr->setLeftChildPtr(leftPtr);
+	rootPtr->setRightChildPtr(rightPtr);
 }
 
-BinaryNodeTree::BinaryNodeTree(const BinaryNodeTree& treePtr)
+template <class ItemType>
+BinaryNodeTree<ItemType>::BinaryNodeTree(const BinaryNodeTree& treePtr)
 {
 	rootPtr = copyTree(treePtr.rootPtr);
 }
 
-BinaryNodeTree::~BinaryNodeTree()
+template <class ItemType>
+BinaryNodeTree<ItemType>::~BinaryNodeTree()
 {
 	destroyTree(rootPtr);
 }
 
 // -------------------- PROTECTED METHODS
-Person* BinaryNodeTree::copyTree(const Person* treePtr) const
+template <class ItemType>
+BinaryNode<ItemType>* BinaryNodeTree<ItemType>::copyTree(const BinaryNode<ItemType>* treePtr) const
 {
-	Person* newTreePtr = nullptr;
+	BinaryNode<ItemType>* newTreePtr = nullptr;
 	if (treePtr != nullptr)
 	{
-		newTreePtr = new Person(treePtr->getName(), treePtr->getBirthday(), nullptr, nullptr);
+		newTreePtr = new BinaryNode<ItemType>(treePtr->getItem(), nullptr, nullptr);
 		newTreePtr->setLeftChildPtr(copyTree(treePtr->getLeftChildPtr()));
 		newTreePtr->setRightChildPtr(copyTree(treePtr->getRightChildPtr()));
 	}
 	return newTreePtr;
 }
 
-void BinaryNodeTree::destroyTree(Person* subTreePtr)
+template <class ItemType>
+void BinaryNodeTree<ItemType>::destroyTree(BinaryNode<ItemType>* subTreePtr)
 {
 	if (subTreePtr != nullptr)
 	{
@@ -49,7 +58,8 @@ void BinaryNodeTree::destroyTree(Person* subTreePtr)
 	}
 }
 
-int BinaryNodeTree::getNumberOfNodesHelper(Person* subTreePtr) const
+template <class ItemType>
+int BinaryNodeTree<ItemType>::getNumberOfNodesHelper(BinaryNode<ItemType>* subTreePtr) const
 {
 	if (subTreePtr == nullptr)
 		return 0;
@@ -58,7 +68,8 @@ int BinaryNodeTree::getNumberOfNodesHelper(Person* subTreePtr) const
 		getNumberOfNodesHelper(subTreePtr->getRightChildPtr());
 }
 
-int BinaryNodeTree::getHeightHelper(Person* subTreePtr) const
+template <class ItemType>
+int BinaryNodeTree<ItemType>::getHeightHelper(BinaryNode<ItemType>* subTreePtr) const
 {
 	if (subTreePtr == nullptr)
 		return 0;
@@ -67,7 +78,9 @@ int BinaryNodeTree::getHeightHelper(Person* subTreePtr) const
 			getHeightHelper(subTreePtr->getRightChildPtr()));
 }
 
-Person* BinaryNodeTree::balanceAdd(Person* subTreePtr, Person* newNodePtr)
+template <class ItemType>
+BinaryNode<ItemType>* BinaryNodeTree<ItemType>::balanceAdd(BinaryNode<ItemType>* subTreePtr, 
+	BinaryNode<ItemType>* newNodePtr)
 {
 	if (subTreePtr == nullptr)
 	{
@@ -75,8 +88,8 @@ Person* BinaryNodeTree::balanceAdd(Person* subTreePtr, Person* newNodePtr)
 	}
 	else
 	{
-		Person* leftPtr = subTreePtr->getLeftChildPtr();
-		Person* rightPtr = subTreePtr->getRightChildPtr();
+		BinaryNode<ItemType>* leftPtr = subTreePtr->getLeftChildPtr();
+		BinaryNode<ItemType>* rightPtr = subTreePtr->getRightChildPtr();
 
 		if (getHeightHelper(leftPtr) > getHeightHelper(rightPtr))
 		{
@@ -94,7 +107,8 @@ Person* BinaryNodeTree::balanceAdd(Person* subTreePtr, Person* newNodePtr)
 
 // Removes the target value from the tree by calling moveValuesUpTree
 // to overwrite value with value from child.
-Person* BinaryNodeTree::removeValue(Person* subTreePtr,
+template <class ItemType>
+BinaryNode<ItemType>* BinaryNodeTree<ItemType>::removeValue(BinaryNode<ItemType>* subTreePtr,
 	const string& name, bool& success)
 {
 	if (subTreePtr == nullptr)
@@ -102,7 +116,7 @@ Person* BinaryNodeTree::removeValue(Person* subTreePtr,
 		success = false;
 		return subTreePtr;
 	}
-	Person* toRemove = findNodeByName(subTreePtr, name, success); // Find the node to remove
+	BinaryNode<ItemType>* toRemove = findNodeByName(subTreePtr, name, success); // Find the node to remove
 	if (success) // Check if successful
 	{
 		moveValuesUpTree(toRemove);
@@ -114,7 +128,8 @@ Person* BinaryNodeTree::removeValue(Person* subTreePtr,
 // Copies values up the tree to overwrite value in current node until
 // a leaf is reached; the leaf is then removed, since its value is
 // stored in the parent.
-Person* BinaryNodeTree::moveValuesUpTree(Person* subTreePtr)
+template <class ItemType>
+BinaryNode<ItemType>* BinaryNodeTree<ItemType>::moveValuesUpTree(BinaryNode<ItemType>* subTreePtr)
 {
 	if (subTreePtr != nullptr) // Make sure it isn't null
 	{
@@ -122,8 +137,7 @@ Person* BinaryNodeTree::moveValuesUpTree(Person* subTreePtr)
 		{
 			if (subTreePtr->getLeftChildPtr() != nullptr)
 			{
-				subTreePtr->setName(subTreePtr->getLeftChildPtr()->getName());
-				subTreePtr->setBirthday(subTreePtr->getLeftChildPtr()->getBirthday());
+				subTreePtr->setItem(subTreePtr->getLeftChildPtr()->getItem());
 				if (subTreePtr->getLeftChildPtr()->isLeaf())
 				{
 					subTreePtr->setLeftChildPtr(nullptr);
@@ -136,8 +150,7 @@ Person* BinaryNodeTree::moveValuesUpTree(Person* subTreePtr)
 			}
 			else if (subTreePtr->getRightChildPtr() != nullptr)
 			{
-				subTreePtr->setName(subTreePtr->getRightChildPtr()->getName());
-				subTreePtr->setBirthday(subTreePtr->getRightChildPtr()->getBirthday());
+				subTreePtr->setItem(subTreePtr->getRightChildPtr()->getItem());
 				if (subTreePtr->getRightChildPtr()->isLeaf())
 				{
 					subTreePtr->setRightChildPtr(nullptr);
@@ -155,16 +168,18 @@ Person* BinaryNodeTree::moveValuesUpTree(Person* subTreePtr)
 
 // Recursively searches for target value in the tree by using a
 // preorder traversal.
-Person* BinaryNodeTree::findNodeByName(Person* treePtr, const string& target, bool& success) const
+template <class ItemType>
+BinaryNode<ItemType>* BinaryNodeTree<ItemType>::findNodeByName(BinaryNode<ItemType>* treePtr, 
+	const string& target, bool& success) const
 {
-	Person* foundPtr;
+	BinaryNode<ItemType>* foundPtr;
 	if (treePtr == nullptr) // Make sure it's not empty
 	{
 		success = false;
 		return treePtr;
 	}
 
-	if (treePtr->getName()._Equal(target)) // Check root first
+	if (treePtr->getItem()._Equal(target)) // Check root first
 	{
 		success = true;
 		return treePtr;
@@ -181,7 +196,9 @@ Person* BinaryNodeTree::findNodeByName(Person* treePtr, const string& target, bo
 }
 
 // -------------------- PROTECTED TRAVERSAL METHODS
-void BinaryNodeTree::preorder(void visit(Person&), Person* treePtr) const
+template <class ItemType>
+void BinaryNodeTree<ItemType>::preorder(void visit(BinaryNode<ItemType>&), 
+	BinaryNode<ItemType>* treePtr) const
 {
 	if (treePtr != nullptr)
 	{
@@ -191,26 +208,31 @@ void BinaryNodeTree::preorder(void visit(Person&), Person* treePtr) const
 	}
 }
 
-void BinaryNodeTree::inorder(void visit(Person&), Person* treePtr) const
+template <class ItemType>
+void BinaryNodeTree<ItemType>::inorder(void visit(BinaryNode<ItemType>&), 
+	BinaryNode<ItemType>* treePtr) const
 {
 	if (treePtr != nullptr)
 	{
 		inorder(visit, treePtr->getLeftChildPtr());
-		Person theItem = *treePtr;
+		BinaryNode<ItemType> theItem = *treePtr;
 		visit(theItem);
 		inorder(visit, treePtr->getRightChildPtr());
 	}
 }
 
-void BinaryNodeTree::postorder(void visit(Person&), Person* treePtr) const
+template <class ItemType>
+void BinaryNodeTree<ItemType>::postorder(void visit(BinaryNode<ItemType>&), 
+	BinaryNode<ItemType>* treePtr) const
 {
 	postorder(visit, treePtr->getLeftChildPtr()); // Left Tree
 	postorder(visit, treePtr->getRightChildPtr()); // Right Tree
-	visit((Person &) treePtr); // Root
+	visit((BinaryNode<ItemType> &) treePtr); // Root
 }
 
 // -------------------- PUBLIC METHODS
-bool BinaryNodeTree::isEmpty() const
+template <class ItemType>
+bool BinaryNodeTree<ItemType>::isEmpty() const
 {
 	if (rootPtr == nullptr)
 		return true;
@@ -218,18 +240,21 @@ bool BinaryNodeTree::isEmpty() const
 		return false;
 }
 
-int BinaryNodeTree::getHeight() const
+template <class ItemType>
+int BinaryNodeTree<ItemType>::getHeight() const
 {
 	return getHeightHelper(rootPtr);
 }
 
-bool BinaryNodeTree::add(Person& newData)
+template <class ItemType>
+bool BinaryNodeTree<ItemType>::add(BinaryNode<ItemType>& newData)
 {
 	rootPtr = balanceAdd(rootPtr, &newData);
 	return true;
 }
 
-bool BinaryNodeTree::remove(const string& name) throw (NotFoundException)
+template <class ItemType>
+bool BinaryNodeTree<ItemType>::remove(const string& name) throw (NotFoundException)
 {
 	bool result = false;
 	if (!contains(name)) // Make sure the data exists in tree
@@ -241,7 +266,8 @@ bool BinaryNodeTree::remove(const string& name) throw (NotFoundException)
 	return result;
 }
 
-void BinaryNodeTree::clear()
+template <class ItemType>
+void BinaryNodeTree<ItemType>::clear()
 {
 	if (rootPtr != nullptr)
 	{
@@ -251,10 +277,11 @@ void BinaryNodeTree::clear()
 	}
 }
 
-Person BinaryNodeTree::getEntry(const string& name) const throw (NotFoundException)
+template <class ItemType>
+BinaryNode<ItemType> BinaryNodeTree<ItemType>::getEntry(const string& name) const throw (NotFoundException)
 {
 	bool found = false;
-	Person* node = findNodeByName(rootPtr, name, found);
+	BinaryNode<ItemType>* node = findNodeByName(rootPtr, name, found);
 	if (found)
 	{
 		return *node;
@@ -265,19 +292,22 @@ Person BinaryNodeTree::getEntry(const string& name) const throw (NotFoundExcepti
 	}
 }
 
-bool BinaryNodeTree::contains(const string& anEntry) const
+template <class ItemType>
+bool BinaryNodeTree<ItemType>::contains(const string& anEntry) const
 {
 	bool found = false;
 	findNodeByName(rootPtr, anEntry, found);
 	return found;
 }
 
-int BinaryNodeTree::getNumberOfNodes() const
+template <class ItemType>
+int BinaryNodeTree<ItemType>::getNumberOfNodes() const
 {
 	return getNumberOfNodesHelper(rootPtr);
 }
 
-Person BinaryNodeTree::getRootData() throw (PrecondViolationExcep)
+template <class ItemType>
+BinaryNode<ItemType> BinaryNodeTree<ItemType>::getRootData() throw (PrecondViolationExcep)
 {
 	if (rootPtr != nullptr)
 		return *rootPtr;
@@ -285,30 +315,34 @@ Person BinaryNodeTree::getRootData() throw (PrecondViolationExcep)
 		throw PrecondViolationExcep("Tree is empty");
 }
 
-void BinaryNodeTree::setRootData(const Person& newPerson)
+template <class ItemType>
+void BinaryNodeTree<ItemType>::setRootData(const ItemType& newData)
 {
-	rootPtr->setName(newPerson.getName());
-	rootPtr->setBirthday(newPerson.getBirthday());
+	rootPtr->setItem(newData);
 }
 
 // -------------------- PUBLIC TRAVERSAL METHODS
-void BinaryNodeTree::preorderTraverse(void visit(Person&)) const
+template <class ItemType>
+void BinaryNodeTree<ItemType>::preorderTraverse(void visit(BinaryNode<ItemType>&)) const
 {
 	preorder(visit, rootPtr);
 }
 
-void BinaryNodeTree::inorderTraverse(void visit(Person&)) const
+template <class ItemType>
+void BinaryNodeTree<ItemType>::inorderTraverse(void visit(BinaryNode<ItemType>&)) const
 {
 	inorder(visit, rootPtr);
 }
 
-void BinaryNodeTree::postorderTraverse(void visit(Person&)) const
+template <class ItemType>
+void BinaryNodeTree<ItemType>::postorderTraverse(void visit(BinaryNode<ItemType>&)) const
 {
 	postorder(visit, rootPtr);
 }
 
 // -------------------- OPERATOR METHODS
-BinaryNodeTree& BinaryNodeTree::operator=(const BinaryNodeTree& rightHandSide)
+template <class ItemType>
+BinaryNodeTree<ItemType>& BinaryNodeTree<ItemType>::operator=(const BinaryNodeTree& rightHandSide)
 {
 	if (!isEmpty())
 	{

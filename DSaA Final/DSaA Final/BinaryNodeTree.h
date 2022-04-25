@@ -21,11 +21,11 @@ protected:
 	int getNumberOfNodesHelper(BinaryNode<ItemType>* subTreePtr) const;
 	void destroyTree(BinaryNode<ItemType>* subTreePtr);
 
-	BinaryNode* balanceAdd(BinaryNode<ItemType>* subTreePtr, BinaryNode<ItemType>* newNodePtr);
-	BinaryNode* removeValue(BinaryNode<ItemType>* subTreePtr, const string& name, bool& success);
-	BinaryNode* moveValuesUpTree(BinaryNode<ItemType>* subTreePtr);
-	BinaryNode* findNodeByName(BinaryNode<ItemType>* treePtr, const string& target, bool& success) const;
-	BinaryNode* copyTree(const BinaryNode<ItemType>* treePtr) const;
+	BinaryNode<ItemType>* balanceAdd(BinaryNode<ItemType>* subTreePtr, BinaryNode<ItemType>* newNodePtr);
+	BinaryNode<ItemType>* removeValue(BinaryNode<ItemType>* subTreePtr, const string& name, bool& success);
+	BinaryNode<ItemType>* moveValuesUpTree(BinaryNode<ItemType>* subTreePtr);
+	BinaryNode<ItemType>* findNodeByName(BinaryNode<ItemType>* treePtr, const string& target, bool& success) const;
+	BinaryNode<ItemType>* copyTree(const BinaryNode<ItemType>* treePtr) const;
 
 	void preorder(void visit(BinaryNode<ItemType>&), BinaryNode<ItemType>* treePtr) const;
 	void inorder(void visit(BinaryNode<ItemType>&), BinaryNode<ItemType>* treePtr) const;
@@ -43,16 +43,16 @@ public:
 	int getHeight() const;
 	int getNumberOfNodes() const;
 	BinaryNode<ItemType> getRootData() throw (PrecondViolationExcep);
-	void setRootData(const Person& newPerson);
-	bool add(Person& newData);
+	void setRootData(const ItemType& newData);
+	bool add(BinaryNode<ItemType>& newData);
 	bool remove(const string& name) throw (NotFoundException);
 	void clear();
 	BinaryNode<ItemType> getEntry(const string& anEntry) const throw (NotFoundException);
 	bool contains(const string& anEntry) const;
 
-	void preorderTraverse(void visit(Person&)) const;
-	void inorderTraverse(void visit(Person&)) const;
-	void postorderTraverse(void visit(Person&)) const;
+	void preorderTraverse(void visit(BinaryNode<ItemType>&)) const;
+	void inorderTraverse(void visit(BinaryNode<ItemType>&)) const;
+	void postorderTraverse(void visit(BinaryNode<ItemType>&)) const;
 
 	BinaryNodeTree<ItemType>& operator=(const BinaryNodeTree<ItemType>& rightHandSide);
 };

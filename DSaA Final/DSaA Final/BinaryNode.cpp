@@ -1,54 +1,45 @@
 #include "BinaryNode.h"
 
 // -------------------- CONSTRUCTORS
-Person::Person()
+template <class ItemType>
+BinaryNode<ItemType>::BinaryNode<ItemType>()
 {
-	name = "";
-	birthday = "";
+	item;
 	leftChildPtr = nullptr;
 	rightChildPtr = nullptr;
 }
 
-Person::Person(const string& mName, const string& mBirthday)
+template <class ItemType>
+BinaryNode<ItemType>::BinaryNode<ItemType>(const ItemType& entry)
 {
-	name = mName;
-	birthday = mBirthday;
+	item = entry;
 	leftChildPtr = nullptr;
 	rightChildPtr = nullptr;
 }
 
-Person::Person(const string& mName, const string& mBirthday, Person* left, Person* right)
+template <class ItemType>
+BinaryNode<ItemType>::BinaryNode<ItemType>(const ItemType& entry, BinaryNode<ItemType>* left, BinaryNode<ItemType>* right)
 {
-	name = mName;
-	birthday = mBirthday;
+	item = entry;
 	leftChildPtr = left;
 	rightChildPtr = right;
 }
 
 // -------------------- PUBLIC METHODS
-
-void Person::setName(const string& anItem)
+template <class ItemType>
+void BinaryNode<ItemType>::setItem(const ItemType& anItem)
 {
-	name = anItem;
+	item = anItem;
 }
 
-void Person::setBirthday(const string& anItem)
+template <class ItemType>
+string BinaryNode<ItemType>::getItem() const
 {
-	birthday = anItem;
+	return item;
 }
 
-string Person::getName() const
-{
-	return name;
-}
-
-string Person::getBirthday() const
-{
-	return birthday;
-}
-
-
-bool Person::isLeaf() const
+template <class ItemType>
+bool BinaryNode<ItemType>::isLeaf() const
 {
 	if (leftChildPtr == nullptr && rightChildPtr == nullptr)
 	{
@@ -57,22 +48,35 @@ bool Person::isLeaf() const
 	return false;
 }
 
-Person* Person::getLeftChildPtr() const
+template <class ItemType>
+BinaryNode<ItemType>* BinaryNode<ItemType>::getLeftChildPtr() const
 {
 	return leftChildPtr;
 }
 
-Person* Person::getRightChildPtr() const
+template <class ItemType>
+BinaryNode<ItemType>* BinaryNode<ItemType>::getRightChildPtr() const
 {
 	return rightChildPtr;
 }
 
-void Person::setLeftChildPtr(Person* left)
+template <class ItemType>
+void BinaryNode<ItemType>::setLeftChildPtr(BinaryNode<ItemType>* left)
 {
 	leftChildPtr = left;
 }
 
-void Person::setRightChildPtr(Person* right)
+template <class ItemType>
+void BinaryNode<ItemType>::setRightChildPtr(BinaryNode<ItemType>* right)
 {
 	rightChildPtr = right;
+}
+
+template<class ItemType>
+BinaryNode<ItemType>& BinaryNode<ItemType>::operator= (const BinaryNode<ItemType>& other)
+{
+	item = other.getItem();
+	this->leftChildPtr = other.leftChildPtr;
+	this->rightChildPtr = other.rightChildPtr;
+	return *this;
 }

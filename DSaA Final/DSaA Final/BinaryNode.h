@@ -12,20 +12,18 @@ template <class ItemType>
 class BinaryNode
 {
 private:
-	BinaryNode<ItemType>* rootPtr;
+	ItemType item;
 	BinaryNode<ItemType>* leftChildPtr;
 	BinaryNode<ItemType>* rightChildPtr;
 
 public:
 	BinaryNode();
-	BinaryNode(const ItemType& item);
-	BinaryNode(const ItemType& item,
+	BinaryNode(const ItemType& entry);
+	BinaryNode(const ItemType& entry,
 		BinaryNode<ItemType>* left,
 		BinaryNode<ItemType>* right);
-	void setName(const ItemType& anItem);
-	void setBirthday(const ItemType& anItem);
-	string getName() const;
-	string getBirthday() const;
+	void setItem(const ItemType& anItem);
+	string getItem() const;
 
 	bool isLeaf() const;
 
@@ -34,6 +32,8 @@ public:
 
 	void setLeftChildPtr(BinaryNode<ItemType>* left);
 	void setRightChildPtr(BinaryNode<ItemType>* right);
+
+	BinaryNode<ItemType>& operator= (const BinaryNode<ItemType>& other);
 };
 #endif
 
