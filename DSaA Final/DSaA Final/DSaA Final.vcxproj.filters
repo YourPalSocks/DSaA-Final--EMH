@@ -27,6 +27,9 @@
     <ClInclude Include="PrecondViolatedExcep.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="BinaryTreeInterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BinaryNodeTree.cpp">

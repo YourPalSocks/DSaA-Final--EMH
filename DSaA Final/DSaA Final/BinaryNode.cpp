@@ -33,7 +33,7 @@ void BinaryNode<ItemType>::setItem(const ItemType& anItem)
 }
 
 template <class ItemType>
-string BinaryNode<ItemType>::getItem() const
+ItemType BinaryNode<ItemType>::getItem() const
 {
 	return item;
 }

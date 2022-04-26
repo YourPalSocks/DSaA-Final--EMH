@@ -208,6 +208,20 @@ void BinaryNodeTree<ItemType>::preorder(void visit(ItemType&),
 		preorder(visit, treePtr->getRightChildPtr()); // Right tree
 	}
 }
+
+template <class ItemType>
+void BinaryNodeTree<ItemType>::preorder(BinaryNode<ItemType>* treePtr, ItemType* arr)
+{
+	if (treePtr != nullptr)
+	{
+		ItemType item = treePtr->getItem();
+		arr[arrayTracker] = item;
+		arrayTracker++;
+		preorder(treePtr->getLeftChildPtr(), arr); // Left tree
+		preorder(treePtr->getRightChildPtr(), arr); // Right tree
+	}
+}
+
 // -------------------- PUBLIC METHODS
 template <class ItemType>
 bool BinaryNodeTree<ItemType>::isEmpty() const
@@ -225,9 +239,13 @@ int BinaryNodeTree<ItemType>::getHeight() const
 }
 
 template <class ItemType>
-bool BinaryNodeTree<ItemType>::add(BinaryNode<ItemType>& newData)
+bool BinaryNodeTree<ItemType>::add(const ItemType& newData)
 {
-	rootPtr = balanceAdd(rootPtr, &newData);
+	// Create new node with data
+	BinaryNode<ItemType>* newNode = new BinaryNode<ItemType>();
+	newNode->setItem(newData);
+	// Send to be added
+	rootPtr = balanceAdd(rootPtr, newNode);
 	return true;
 }
 
@@ -256,13 +274,13 @@ void BinaryNodeTree<ItemType>::clear()
 }
 
 template <class ItemType>
-BinaryNode<ItemType> BinaryNodeTree<ItemType>::getEntry(const string& name) const throw (NotFoundException)
+ItemType BinaryNodeTree<ItemType>::getEntry(const string& name) const throw (NotFoundException)
 {
 	bool found = false;
 	BinaryNode<ItemType>* node = findNodeByName(rootPtr, name, found);
 	if (found)
 	{
-		return *node;
+		return node->getItem();
 	}
 	else
 	{
@@ -285,10 +303,10 @@ int BinaryNodeTree<ItemType>::getNumberOfNodes() const
 }
 
 template <class ItemType>
-BinaryNode<ItemType> BinaryNodeTree<ItemType>::getRootData() throw (PrecondViolationExcep)
+ItemType BinaryNodeTree<ItemType>::getRootData() const throw (PrecondViolationExcep)
 {
 	if (rootPtr != nullptr)
-		return *rootPtr;
+		return rootPtr->getItem();
 	else
 		throw PrecondViolationExcep("Tree is empty");
 }
@@ -316,6 +334,54 @@ template <class ItemType>
 void BinaryNodeTree<ItemType>::postorderTraverse(void visit(ItemType&)) const
 {
 	//postorder(visit, rootPtr);
+}
+
+/** The function specified to make for the final. Compares two trees.
+* @param treeA Tree to compare to treeB.
+* @param treeB Tree to compare to treeA.
+* @return True if structures of tree are same, false otherwise.
+*/
+template <class ItemType>
+bool BinaryNodeTree<ItemType>::isSameTree(BinaryNodeTree<string> other)
+{
+	// First check: heights and node amount
+	if (getHeight() != other.getHeight() || getNumberOfNodes() != other.getNumberOfNodes())
+	{
+		return false;
+	}
+	// Second check: every element has a match in the other array
+	int size = getNumberOfNodes();
+	ItemType* arr_TreeA = createNodeArray();
+	ItemType* arr_TreeB = other.createNodeArray();
+	// Check
+	for (int i = 0; i < size; i++)
+	{
+		bool matchFound = false;
+		for (int j = 0; j < size; j++) // Already established that the two trees have the same # of nodes
+		{
+			if (arr_TreeA[i] == arr_TreeB[j])
+			{
+				matchFound = true;
+				break;
+			}
+		}
+		// Automatically leave if a match couldn't be found for an entry
+		if (!matchFound)
+		{
+			return false;
+		}
+	}
+	// Left loop, every entry has a match
+	return true;
+}
+
+template <class ItemType>
+ItemType* BinaryNodeTree<ItemType>::createNodeArray()
+{
+	int size = getNumberOfNodes();
+	ItemType* nodes = new ItemType[size];
+	preorder(rootPtr, nodes);
+	return nodes;
 }
 
 // -------------------- OPERATOR METHODS

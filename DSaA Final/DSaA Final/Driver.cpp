@@ -33,10 +33,7 @@
 using namespace std;
 
 // Function Declarations
-bool isSameTree(BinaryNodeTree<string> treeA, BinaryNodeTree<string> treeB);
-
-BinaryNode<string> createNewNode();
-string createSearchQuery();
+string createData();
 void printTree(string& item);
 
 int main()
@@ -48,6 +45,7 @@ int main()
     {
         // Print Menu
         cout << "Binary Tree Comparison Program -- CI.2207 Final" << endl;
+        cout << "** NOTE: All print functions use preorder traversal." << endl;
         cout << "===== Tree A Commands =====" << endl;
         cout << "0 - Add to tree" << endl;
         cout << "1 - Remove from tree" << endl;
@@ -76,10 +74,9 @@ int main()
                 break;
 
             // TREE A COMMS
-            case 0:
+            case 0: // Add
             {
-                BinaryNode<string> newNode = createNewNode();
-                s = treeA.add(newNode);
+                s = treeA.add(createData());
                 if (s)
                     cout << "Item added." << endl;
                 else
@@ -87,26 +84,32 @@ int main()
                 break;
             }
 
-            case 1:
+            case 1: // Remove
             {
-                string qu = createSearchQuery();
-                s = treeA.remove(qu);
-                if (s)
-                    cout << "Item removed." << endl;
-                else
-                    cout << "Item could not be removed." << endl;
+                string qu = createData();
+                try
+                {
+                    s = treeA.remove(qu);
+                    if (s)
+                        cout << "Item removed." << endl;
+                    else
+                        cout << "Item could not be removed." << endl;
+                }
+                catch (NotFoundException e)
+                {
+                    cout << "ERROR: Item does not exist in tree." << endl;
+                }
                 break;
             }
 
-            case 2:
+            case 2: // Print
                 treeA.preorderTraverse(printTree);
                 break;
 
             // TREE B COMMS
-            case 3:
+            case 3: // Add
             {
-                BinaryNode<string> newNode = createNewNode();
-                s = treeB.add(newNode);
+                s = treeB.add(createData());
                 if (s)
                     cout << "Item added." << endl;
                 else
@@ -114,24 +117,31 @@ int main()
                 break;
             }
 
-            case 4:
+            case 4: // Remove
             {
-                string qu = createSearchQuery();
-                s = treeB.remove(qu);
-                if (s)
-                    cout << "Item removed." << endl;
-                else
-                    cout << "Item could not be removed." << endl;
+                string qu = createData();
+                try
+                {
+                    s = treeB.remove(qu);
+                    if (s)
+                        cout << "Item removed." << endl;
+                    else
+                        cout << "Item could not be removed." << endl;
+                }
+                catch (NotFoundException e)
+                {
+                    cout << "ERROR: Item does not exist in tree." << endl;
+                }
                 break;
             }
 
-            case 5:
+            case 5: // Print
                 treeB.preorderTraverse(printTree);
                 break;
 
             // OTHER COMMS
             case 6:
-                if (isSameTree(treeA, treeB))
+                if (treeA.isSameTree(treeB))
                 {
                     cout << "The two trees are equivalent" << endl;
                 }
@@ -158,37 +168,10 @@ int main()
     return 0;
 }
 
-
-/** The function specified to make for the final. Compares two trees.
-* @param treeA Tree to compare to treeB.
-* @param treeB Tree to compare to treeA.
-* @return True if structures of tree are same, false otherwise.
-*/
-bool isSameTree(BinaryNodeTree<string> treeA, BinaryNodeTree<string> treeB)
-{
-    // First check: heights and node amount
-    if (treeA.getHeight() != treeB.getHeight() || treeA.getNumberOfNodes() != treeB.getNumberOfNodes())
-    {
-        return false;
-    }
-    // Second check: <>
-    return false;
-}
-
-BinaryNode<string> createNewNode()
-{
-    string item = "";
-    cout << "Enter item to add: ";
-    cin.ignore();
-    getline(cin, item);
-    BinaryNode<string> newNode(item);
-    return newNode;
-}
-
-string createSearchQuery()
+string createData()
 {
     string toRem = "";
-    cout << "Enter item to remove: ";
+    cout << "Enter item name: ";
     cin.ignore();
     getline(cin, toRem);
     return toRem;

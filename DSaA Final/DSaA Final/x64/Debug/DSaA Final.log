@@ -1,77 +1,88 @@
 ﻿  BinaryNodeTree.cpp
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNodeTree.h(43,1): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNodeTree.h(56): message : see reference to class template instantiation 'BinaryNodeTree<ItemType>' being compiled
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNodeTree.h(46,1): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNodeTree.h(48,1): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNodeTree.cpp(235,1): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNodeTree.cpp(259,1): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNodeTree.cpp(288,1): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNode.h(40): warning C4661: 'BinaryNode<std::string>::BinaryNode(const ItemType &,BinaryNode<ItemType> *,BinaryNode<ItemType> *)': no suitable definition provided for explicit template instantiation request
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryTreeInterface.h(31,1): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryTreeInterface.h(78): message : see reference to class template instantiation 'BinaryTreeInterface<ItemType>' being compiled
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryTreeInterface.h(63,1): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNodeTree.h(46,1): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNodeTree.h(62): message : see reference to class template instantiation 'BinaryNodeTree<ItemType>' being compiled
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNodeTree.h(49,1): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNodeTree.h(51,1): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNodeTree.cpp(253,1): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNodeTree.cpp(277,1): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNodeTree.cpp(306,1): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNode.h(40): warning C4661: 'BinaryNode<std::string>::BinaryNode(const ItemType &,BinaryNode<ItemType> *,BinaryNode<ItemType> *)': no suitable definition provided for explicit template instantiation request
           with
           [
               ItemType=std::string
           ]
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNode.h(22): message : see declaration of 'BinaryNode<std::string>::BinaryNode'
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNode.h(40): warning C4661: 'BinaryNode<std::string>::BinaryNode(const ItemType &)': no suitable definition provided for explicit template instantiation request
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNode.h(22): message : see declaration of 'BinaryNode<std::string>::BinaryNode'
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNode.h(40): warning C4661: 'BinaryNode<std::string>::BinaryNode(const ItemType &)': no suitable definition provided for explicit template instantiation request
           with
           [
               ItemType=std::string
           ]
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNode.h(21): message : see declaration of 'BinaryNode<std::string>::BinaryNode'
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNode.h(40): warning C4661: 'BinaryNode<std::string>::BinaryNode(void)': no suitable definition provided for explicit template instantiation request
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNode.h(20): message : see declaration of 'BinaryNode<std::string>::BinaryNode'
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNode.h(40): warning C4661: 'void BinaryNode<std::string>::setItem(const ItemType &)': no suitable definition provided for explicit template instantiation request
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNode.h(21): message : see declaration of 'BinaryNode<std::string>::BinaryNode'
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNode.h(40): warning C4661: 'BinaryNode<std::string>::BinaryNode(void)': no suitable definition provided for explicit template instantiation request
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNode.h(20): message : see declaration of 'BinaryNode<std::string>::BinaryNode'
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNode.h(40): warning C4661: 'void BinaryNode<std::string>::setItem(const ItemType &)': no suitable definition provided for explicit template instantiation request
           with
           [
               ItemType=std::string
           ]
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNode.h(25): message : see declaration of 'BinaryNode<std::string>::setItem'
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNode.h(40): warning C4661: 'std::string BinaryNode<std::string>::getItem(void) const': no suitable definition provided for explicit template instantiation request
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNode.h(26): message : see declaration of 'BinaryNode<std::string>::getItem'
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNode.h(40): warning C4661: 'bool BinaryNode<std::string>::isLeaf(void) const': no suitable definition provided for explicit template instantiation request
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNode.h(28): message : see declaration of 'BinaryNode<std::string>::isLeaf'
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNode.h(40): warning C4661: 'BinaryNode<std::string> *BinaryNode<std::string>::getLeftChildPtr(void) const': no suitable definition provided for explicit template instantiation request
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNode.h(30): message : see declaration of 'BinaryNode<std::string>::getLeftChildPtr'
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNode.h(40): warning C4661: 'BinaryNode<std::string> *BinaryNode<std::string>::getRightChildPtr(void) const': no suitable definition provided for explicit template instantiation request
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNode.h(31): message : see declaration of 'BinaryNode<std::string>::getRightChildPtr'
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNode.h(40): warning C4661: 'void BinaryNode<std::string>::setLeftChildPtr(BinaryNode<std::string> *)': no suitable definition provided for explicit template instantiation request
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNode.h(33): message : see declaration of 'BinaryNode<std::string>::setLeftChildPtr'
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNode.h(40): warning C4661: 'void BinaryNode<std::string>::setRightChildPtr(BinaryNode<std::string> *)': no suitable definition provided for explicit template instantiation request
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNode.h(34): message : see declaration of 'BinaryNode<std::string>::setRightChildPtr'
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNode.h(40): warning C4661: 'BinaryNode<std::string> BinaryNode<std::string>::operator =(const BinaryNode<std::string> &)': no suitable definition provided for explicit template instantiation request
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNode.h(36): message : see declaration of 'BinaryNode<std::string>::operator ='
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNodeTree.cpp(77): warning C4661: 'BinaryNode<std::string>::BinaryNode(const ItemType &,BinaryNode<ItemType> *,BinaryNode<ItemType> *)': no suitable definition provided for explicit template instantiation request
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNode.h(25): message : see declaration of 'BinaryNode<std::string>::setItem'
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNode.h(40): warning C4661: 'ItemType BinaryNode<ItemType>::getItem(void) const': no suitable definition provided for explicit template instantiation request
           with
           [
               ItemType=std::string
           ]
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNode.h(22): message : see declaration of 'BinaryNode<std::string>::BinaryNode'
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNodeTree.cpp(77): warning C4661: 'BinaryNode<std::string>::BinaryNode(const ItemType &)': no suitable definition provided for explicit template instantiation request
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNode.h(26): message : see declaration of 'BinaryNode<std::string>::getItem'
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNode.h(40): warning C4661: 'bool BinaryNode<std::string>::isLeaf(void) const': no suitable definition provided for explicit template instantiation request
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNode.h(28): message : see declaration of 'BinaryNode<std::string>::isLeaf'
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNode.h(40): warning C4661: 'BinaryNode<std::string> *BinaryNode<std::string>::getLeftChildPtr(void) const': no suitable definition provided for explicit template instantiation request
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNode.h(30): message : see declaration of 'BinaryNode<std::string>::getLeftChildPtr'
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNode.h(40): warning C4661: 'BinaryNode<std::string> *BinaryNode<std::string>::getRightChildPtr(void) const': no suitable definition provided for explicit template instantiation request
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNode.h(31): message : see declaration of 'BinaryNode<std::string>::getRightChildPtr'
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNode.h(40): warning C4661: 'void BinaryNode<std::string>::setLeftChildPtr(BinaryNode<std::string> *)': no suitable definition provided for explicit template instantiation request
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNode.h(33): message : see declaration of 'BinaryNode<std::string>::setLeftChildPtr'
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNode.h(40): warning C4661: 'void BinaryNode<std::string>::setRightChildPtr(BinaryNode<std::string> *)': no suitable definition provided for explicit template instantiation request
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNode.h(34): message : see declaration of 'BinaryNode<std::string>::setRightChildPtr'
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNode.h(40): warning C4661: 'BinaryNode<std::string> BinaryNode<std::string>::operator =(const BinaryNode<std::string> &)': no suitable definition provided for explicit template instantiation request
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNode.h(36): message : see declaration of 'BinaryNode<std::string>::operator ='
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNodeTree.cpp(77): warning C4661: 'BinaryNode<std::string>::BinaryNode(const ItemType &,BinaryNode<ItemType> *,BinaryNode<ItemType> *)': no suitable definition provided for explicit template instantiation request
           with
           [
               ItemType=std::string
           ]
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNode.h(21): message : see declaration of 'BinaryNode<std::string>::BinaryNode'
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNodeTree.cpp(77): warning C4661: 'BinaryNode<std::string>::BinaryNode(void)': no suitable definition provided for explicit template instantiation request
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNode.h(20): message : see declaration of 'BinaryNode<std::string>::BinaryNode'
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNodeTree.cpp(77): warning C4661: 'void BinaryNode<std::string>::setItem(const ItemType &)': no suitable definition provided for explicit template instantiation request
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNode.h(22): message : see declaration of 'BinaryNode<std::string>::BinaryNode'
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNodeTree.cpp(77): warning C4661: 'BinaryNode<std::string>::BinaryNode(const ItemType &)': no suitable definition provided for explicit template instantiation request
           with
           [
               ItemType=std::string
           ]
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNode.h(25): message : see declaration of 'BinaryNode<std::string>::setItem'
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNodeTree.cpp(77): warning C4661: 'std::string BinaryNode<std::string>::getItem(void) const': no suitable definition provided for explicit template instantiation request
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNode.h(26): message : see declaration of 'BinaryNode<std::string>::getItem'
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNodeTree.cpp(77): warning C4661: 'bool BinaryNode<std::string>::isLeaf(void) const': no suitable definition provided for explicit template instantiation request
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNode.h(28): message : see declaration of 'BinaryNode<std::string>::isLeaf'
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNodeTree.cpp(77): warning C4661: 'BinaryNode<std::string> *BinaryNode<std::string>::getLeftChildPtr(void) const': no suitable definition provided for explicit template instantiation request
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNode.h(30): message : see declaration of 'BinaryNode<std::string>::getLeftChildPtr'
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNodeTree.cpp(77): warning C4661: 'BinaryNode<std::string> *BinaryNode<std::string>::getRightChildPtr(void) const': no suitable definition provided for explicit template instantiation request
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNode.h(31): message : see declaration of 'BinaryNode<std::string>::getRightChildPtr'
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNodeTree.cpp(77): warning C4661: 'void BinaryNode<std::string>::setLeftChildPtr(BinaryNode<std::string> *)': no suitable definition provided for explicit template instantiation request
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNode.h(33): message : see declaration of 'BinaryNode<std::string>::setLeftChildPtr'
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNodeTree.cpp(77): warning C4661: 'void BinaryNode<std::string>::setRightChildPtr(BinaryNode<std::string> *)': no suitable definition provided for explicit template instantiation request
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNode.h(34): message : see declaration of 'BinaryNode<std::string>::setRightChildPtr'
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNodeTree.cpp(77): warning C4661: 'BinaryNode<std::string> BinaryNode<std::string>::operator =(const BinaryNode<std::string> &)': no suitable definition provided for explicit template instantiation request
-C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\DSaA Final\BinaryNode.h(36): message : see declaration of 'BinaryNode<std::string>::operator ='
-  DSaA Final.vcxproj -> C:\Users\ethan\Desktop\DSaA Final- EMH\DSaA Final\x64\Debug\DSaA Final.exe
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNode.h(21): message : see declaration of 'BinaryNode<std::string>::BinaryNode'
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNodeTree.cpp(77): warning C4661: 'BinaryNode<std::string>::BinaryNode(void)': no suitable definition provided for explicit template instantiation request
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNode.h(20): message : see declaration of 'BinaryNode<std::string>::BinaryNode'
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNodeTree.cpp(77): warning C4661: 'void BinaryNode<std::string>::setItem(const ItemType &)': no suitable definition provided for explicit template instantiation request
+          with
+          [
+              ItemType=std::string
+          ]
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNode.h(25): message : see declaration of 'BinaryNode<std::string>::setItem'
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNodeTree.cpp(77): warning C4661: 'ItemType BinaryNode<ItemType>::getItem(void) const': no suitable definition provided for explicit template instantiation request
+          with
+          [
+              ItemType=std::string
+          ]
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNode.h(26): message : see declaration of 'BinaryNode<std::string>::getItem'
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNodeTree.cpp(77): warning C4661: 'bool BinaryNode<std::string>::isLeaf(void) const': no suitable definition provided for explicit template instantiation request
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNode.h(28): message : see declaration of 'BinaryNode<std::string>::isLeaf'
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNodeTree.cpp(77): warning C4661: 'BinaryNode<std::string> *BinaryNode<std::string>::getLeftChildPtr(void) const': no suitable definition provided for explicit template instantiation request
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNode.h(30): message : see declaration of 'BinaryNode<std::string>::getLeftChildPtr'
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNodeTree.cpp(77): warning C4661: 'BinaryNode<std::string> *BinaryNode<std::string>::getRightChildPtr(void) const': no suitable definition provided for explicit template instantiation request
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNode.h(31): message : see declaration of 'BinaryNode<std::string>::getRightChildPtr'
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNodeTree.cpp(77): warning C4661: 'void BinaryNode<std::string>::setLeftChildPtr(BinaryNode<std::string> *)': no suitable definition provided for explicit template instantiation request
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNode.h(33): message : see declaration of 'BinaryNode<std::string>::setLeftChildPtr'
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNodeTree.cpp(77): warning C4661: 'void BinaryNode<std::string>::setRightChildPtr(BinaryNode<std::string> *)': no suitable definition provided for explicit template instantiation request
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNode.h(34): message : see declaration of 'BinaryNode<std::string>::setRightChildPtr'
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNodeTree.cpp(77): warning C4661: 'BinaryNode<std::string> BinaryNode<std::string>::operator =(const BinaryNode<std::string> &)': no suitable definition provided for explicit template instantiation request
+C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\DSaA Final\BinaryNode.h(36): message : see declaration of 'BinaryNode<std::string>::operator ='
+  DSaA Final.vcxproj -> C:\Users\ethan\Documents\GitHub\DSaA-Final--EMH\DSaA Final\x64\Debug\DSaA Final.exe

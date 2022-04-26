@@ -6,15 +6,17 @@
 #ifndef _BINARY_NODE_TREE
 #define _BINARY_NODE_TREE
 
+#include "BinaryTreeInterface.h"
 #include "BinaryNode.h"
 #include "PrecondViolatedExcep.h"
 #include "NotFoundException.h"
 
 template <class ItemType>
-class BinaryNodeTree
+class BinaryNodeTree : BinaryTreeInterface<ItemType>
 {
 private:
 	BinaryNode<ItemType>* rootPtr;
+	int arrayTracker = 0;
 
 protected:
 	int getHeightHelper(BinaryNode<ItemType>* subTreePtr) const;
@@ -28,6 +30,7 @@ protected:
 	BinaryNode<ItemType>* copyTree(const BinaryNode<ItemType>* treePtr) const;
 
 	void preorder(void visit(ItemType&), BinaryNode<ItemType>* treePtr) const;
+	void preorder(BinaryNode<ItemType>* treePtr, ItemType* arr);
 
 public:
 	BinaryNodeTree();
@@ -40,17 +43,20 @@ public:
 	bool isEmpty() const;
 	int getHeight() const;
 	int getNumberOfNodes() const;
-	BinaryNode<ItemType> getRootData() throw (PrecondViolationExcep);
+	ItemType getRootData() const throw (PrecondViolationExcep);
 	void setRootData(const ItemType& newData);
-	bool add(BinaryNode<ItemType>& newData);
+	bool add(const ItemType& newData);
 	bool remove(const string& name) throw (NotFoundException);
 	void clear();
-	BinaryNode<ItemType> getEntry(const string& anEntry) const throw (NotFoundException);
+	ItemType getEntry(const string& anEntry) const throw (NotFoundException);
 	bool contains(const string& anEntry) const;
 
 	void preorderTraverse(void visit(ItemType&)) const;
 	void inorderTraverse(void visit(ItemType&)) const;
 	void postorderTraverse(void visit(ItemType&)) const;
+
+	bool isSameTree(BinaryNodeTree<string> other);
+	ItemType* createNodeArray();
 
 	BinaryNodeTree<ItemType>& operator=(const BinaryNodeTree<ItemType>& rightHandSide);
 };

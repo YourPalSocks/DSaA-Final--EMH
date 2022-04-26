@@ -23,7 +23,7 @@ public:
 		BinaryNode<ItemType>* left,
 		BinaryNode<ItemType>* right);
 	void setItem(const ItemType& anItem);
-	string getItem() const;
+	ItemType getItem() const;
 
 	bool isLeaf() const;
 
