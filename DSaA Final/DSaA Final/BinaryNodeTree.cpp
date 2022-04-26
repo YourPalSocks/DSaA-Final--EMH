@@ -197,39 +197,17 @@ BinaryNode<ItemType>* BinaryNodeTree<ItemType>::findNodeByName(BinaryNode<ItemTy
 
 // -------------------- PROTECTED TRAVERSAL METHODS
 template <class ItemType>
-void BinaryNodeTree<ItemType>::preorder(void visit(BinaryNode<ItemType>&), 
+void BinaryNodeTree<ItemType>::preorder(void visit(ItemType&), 
 	BinaryNode<ItemType>* treePtr) const
 {
 	if (treePtr != nullptr)
 	{
-		visit(*treePtr); // Root First
+		ItemType item = treePtr->getItem();
+		visit(item); // Root First
 		preorder(visit, treePtr->getLeftChildPtr()); // Left tree
 		preorder(visit, treePtr->getRightChildPtr()); // Right tree
 	}
 }
-
-template <class ItemType>
-void BinaryNodeTree<ItemType>::inorder(void visit(BinaryNode<ItemType>&), 
-	BinaryNode<ItemType>* treePtr) const
-{
-	if (treePtr != nullptr)
-	{
-		inorder(visit, treePtr->getLeftChildPtr());
-		BinaryNode<ItemType> theItem = *treePtr;
-		visit(theItem);
-		inorder(visit, treePtr->getRightChildPtr());
-	}
-}
-
-template <class ItemType>
-void BinaryNodeTree<ItemType>::postorder(void visit(BinaryNode<ItemType>&), 
-	BinaryNode<ItemType>* treePtr) const
-{
-	postorder(visit, treePtr->getLeftChildPtr()); // Left Tree
-	postorder(visit, treePtr->getRightChildPtr()); // Right Tree
-	visit((BinaryNode<ItemType> &) treePtr); // Root
-}
-
 // -------------------- PUBLIC METHODS
 template <class ItemType>
 bool BinaryNodeTree<ItemType>::isEmpty() const
@@ -323,21 +301,21 @@ void BinaryNodeTree<ItemType>::setRootData(const ItemType& newData)
 
 // -------------------- PUBLIC TRAVERSAL METHODS
 template <class ItemType>
-void BinaryNodeTree<ItemType>::preorderTraverse(void visit(BinaryNode<ItemType>&)) const
+void BinaryNodeTree<ItemType>::preorderTraverse(void visit(ItemType&)) const
 {
 	preorder(visit, rootPtr);
 }
 
 template <class ItemType>
-void BinaryNodeTree<ItemType>::inorderTraverse(void visit(BinaryNode<ItemType>&)) const
+void BinaryNodeTree<ItemType>::inorderTraverse(void visit(ItemType&)) const
 {
-	inorder(visit, rootPtr);
+	//inorder(visit, rootPtr);
 }
 
 template <class ItemType>
-void BinaryNodeTree<ItemType>::postorderTraverse(void visit(BinaryNode<ItemType>&)) const
+void BinaryNodeTree<ItemType>::postorderTraverse(void visit(ItemType&)) const
 {
-	postorder(visit, rootPtr);
+	//postorder(visit, rootPtr);
 }
 
 // -------------------- OPERATOR METHODS

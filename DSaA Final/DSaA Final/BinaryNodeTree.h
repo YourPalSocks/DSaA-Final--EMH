@@ -27,9 +27,7 @@ protected:
 	BinaryNode<ItemType>* findNodeByName(BinaryNode<ItemType>* treePtr, const string& target, bool& success) const;
 	BinaryNode<ItemType>* copyTree(const BinaryNode<ItemType>* treePtr) const;
 
-	void preorder(void visit(BinaryNode<ItemType>&), BinaryNode<ItemType>* treePtr) const;
-	void inorder(void visit(BinaryNode<ItemType>&), BinaryNode<ItemType>* treePtr) const;
-	void postorder(void visit(BinaryNode<ItemType>&), BinaryNode<ItemType>* treePtr) const;
+	void preorder(void visit(ItemType&), BinaryNode<ItemType>* treePtr) const;
 
 public:
 	BinaryNodeTree();
@@ -50,9 +48,9 @@ public:
 	BinaryNode<ItemType> getEntry(const string& anEntry) const throw (NotFoundException);
 	bool contains(const string& anEntry) const;
 
-	void preorderTraverse(void visit(BinaryNode<ItemType>&)) const;
-	void inorderTraverse(void visit(BinaryNode<ItemType>&)) const;
-	void postorderTraverse(void visit(BinaryNode<ItemType>&)) const;
+	void preorderTraverse(void visit(ItemType&)) const;
+	void inorderTraverse(void visit(ItemType&)) const;
+	void postorderTraverse(void visit(ItemType&)) const;
 
 	BinaryNodeTree<ItemType>& operator=(const BinaryNodeTree<ItemType>& rightHandSide);
 };
